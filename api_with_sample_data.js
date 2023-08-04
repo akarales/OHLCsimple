@@ -8,7 +8,7 @@ app.use(bodyParser.json());
 
 // Read the sample dataset from the JSON file
 let ohlcData = [];
-fs.readFile('sample_dataset.json', 'utf8', (err, data) => {
+fs.readFile('sample_data.json', 'utf8', (err, data) => {
   if (err) {
     console.error('Error reading sample dataset:', err);
   } else {
