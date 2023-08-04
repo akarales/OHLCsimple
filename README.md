@@ -1,6 +1,6 @@
 # OHLCsimple
 API that computes a moving average across OHLC data
-api_with_sample_data.js
+main.js
 
 dummy set data generated from test file.
 generate_sample_data.js
@@ -21,9 +21,9 @@ Run the generate_sample_data.js script to create the sample_dataset.json file wi
 
 node generate_sample_data.js
 
-Create the api_with_sample_data.js file and use the provided code to implement the OHLC Moving Average API and generate the sample dataset.
+Create the main.js file and use the provided code to implement the OHLC Moving Average API and generate the sample dataset.
 Testing the API using Postman:
-Start your API server by running the api_with_sample_data.js script:
+Start your API server by running the main.js script:
   nodemon main.js
         
 Open Postman and create a new request collection to organize your API tests.
