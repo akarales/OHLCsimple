@@ -49,3 +49,6 @@ Create another request to test the GET /api/average?window=last_24_hours endpoin
 Select the HTTP method as "GET."
 Set the request URL to http://127.0.0.1:3000/api/average?window=last_24_hours.
 Click the "Send" button to send the GET request. You should receive a response with the moving average of all items inserted in the past 24 hours.
+
+run test files in the test folder with:
+npx mocha
