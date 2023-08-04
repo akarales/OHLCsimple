@@ -17,7 +17,7 @@ Follow the prompts to set up the project details. Press Enter to use the default
 Install the required dependencies (express, body-parser, and nodemon) by running the following command:
   npm install express body-parser nodemon --save
 
-Run the generate_sample_data.js script to create the sample_dataset.json file with 10,000 entries of sample OHLC data:
+Run the generate_sample_data.js script to create the sample_dataset.json file with 500,000 entries of sample OHLC data:
 
 node generate_sample_data.js
 
