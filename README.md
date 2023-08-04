@@ -53,3 +53,31 @@ Click the "Send" button to send the GET request. You should receive a response w
 
 run test files in the test folder with:
 npx mocha
+
+```bash
+
+$ npx mocha
+
+
+  Data Controller
+Sample dataset loaded successfully.
+    ✔ should read sample data from the file (483ms)
+    ✔ should calculate OHLC average correctly
+
+  Data Processing
+    ✔ should calculate OHLC average correctly for the entire dataset
+    ✔ should return null for an empty dataset
+    ✔ should calculate OHLC average correctly for a dataset with one record
+
+  Data Routes
+Sample dataset loaded successfully.
+    ✔ should add new data on POST /api/insert (727ms)
+Sample dataset loaded successfully.
+    ✔ should calculate the moving average for the last 5 items on GET /api/average?window=last_5_items (515ms)
+Sample dataset loaded successfully.
+    ✔ should calculate the moving average for the last 24 hours on GET /api/average?window=last_24_hours (1013ms)
+
+
+  8 passing (3s)
+  
+  ```
