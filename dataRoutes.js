@@ -157,6 +157,10 @@ nodemon main.js
       <li>Click the "Send" button to send the GET request. You should receive a response with the moving average of all items inserted in the past 24 hours.</li>
     </ul>
   </ol>
+
+  <h2>Swagger Documentation:</h2>
+  <p>Explore the API endpoints and interact with them using the Swagger documentation:</p>
+  <a href="/api-docs">Swagger Documentation</a>
 `;
 
   const htmlResponse = `<!DOCTYPE html>
