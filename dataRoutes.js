@@ -110,7 +110,7 @@ npm init
     <pre>
 npm install express body-parser nodemon --save
     </pre>
-    <li>Create the <code>api_with_sample_data.js</code> file and use the provided code to implement the OHLC Moving Average API and generate the sample dataset.</li>
+    <li>Create the <code>main.js</code> file and use the provided code to implement the OHLC Moving Average API and generate the sample dataset.</li>
   </ol>
 `;
 
@@ -118,9 +118,9 @@ npm install express body-parser nodemon --save
   <h2>Testing the API using Postman:</h2>
 
   <ol>
-    <li>Start your API server by running the <code>api_with_sample_data.js</code> script:</li>
+    <li>Start your API server by running the <code>main.js</code> script:</li>
     <pre>
-nodemon api_with_sample_data.js
+nodemon main.js
     </pre>
 
     <li>Open Postman and create a new request collection to organize your API tests.</li>
