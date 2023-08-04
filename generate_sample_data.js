@@ -1,52 +1,36 @@
 const fs = require('fs');
 
-// Function to generate a random number within a range
-function getRandomNumber(min, max) {
-  return Math.random() * (max - min) + min;
-}
-
-// Function to generate a random timestamp within a range
-function getRandomTimestamp(start, end) {
-  return new Date(start.getTime() + Math.random() * (end.getTime() - start.getTime()));
-}
-
-// Function to generate a single OHLC record
-function generateOHLCRecord() {
-  const now = new Date();
-  const startTime = new Date(now.getTime() - 7 * 24 * 60 * 60 * 1000); // 7 days ago from now
-  const timestamp = getRandomTimestamp(startTime, now);
-  const open = getRandomNumber(1, 100);
-  const high = getRandomNumber(open, 100);
-  const low = getRandomNumber(1, open);
-  const close = getRandomNumber(low, high);
-
+function generateRandomOHLC(timestamp) {
+  const open = Math.random() * 100;
+  const close = open + (Math.random() - 0.5) * 10;
+  const high = Math.max(open, close) + Math.random() * 10;
+  const low = Math.min(open, close) - Math.random() * 10;
   return {
-    timestamp: timestamp.toISOString(),
-    open,
-    high,
-    low,
-    close,
+    timestamp: new Date(timestamp).toISOString(),
+    open: parseFloat(open.toFixed(2)),
+    high: parseFloat(high.toFixed(2)),
+    low: parseFloat(low.toFixed(2)),
+    close: parseFloat(close.toFixed(2)),
   };
 }
 
-// Function to generate the sample dataset for the past week
-function generateSampleDataSet(numRecords) {
+function generateData() {
   const data = [];
-  for (let i = 0; i < numRecords; i++) {
-    const record = generateOHLCRecord();
-    data.push(record);
+  const numDataPoints = 500000;
+  const oneDay = 24 * 60 * 60 * 1000; // Milliseconds in one day
+  const currentTime = Date.now();
+  const oneWeekAgo = currentTime - 7 * oneDay;
+
+  // Generate consecutive timestamps divided into the past 7 days
+  const interval = Math.floor(numDataPoints / 7);
+  for (let i = 0; i < numDataPoints; i++) {
+    const timestamp = oneWeekAgo + Math.floor(i / interval) * oneDay;
+    data.push(generateRandomOHLC(timestamp));
   }
+
   return data;
 }
 
-// Generate 500,000 sample OHLC records for the past week
-const sampleData = generateSampleDataSet(500000);
-
-// Write the sample dataset to a JSON file
-fs.writeFile('sample_dataset.json', JSON.stringify(sampleData, null, 2), (err) => {
-  if (err) {
-    console.error('Error writing sample dataset:', err);
-  } else {
-    console.log('Sample dataset created successfully.');
-  }
-});
+const data = generateData();
+fs.writeFileSync('sample_data.json', JSON.stringify(data, null, 2));
+console.log('Sample data generated and saved to sample_data.json');
