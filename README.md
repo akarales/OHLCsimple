@@ -20,6 +20,7 @@ Install the required dependencies (express, body-parser, and nodemon) by running
 Run the generate_sample_data.js script to create the sample_dataset.json file with 500,000 entries of sample OHLC data:
 
 node generate_sample_data.js
+node generate_test_data.js (for unit testing) 
 
 Create the main.js file and use the provided code to implement the OHLC Moving Average API and generate the sample dataset.
 Testing the API using Postman:
