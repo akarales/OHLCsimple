@@ -1,0 +1,89 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+      "title": "Your API Title",
+      "version": "1.0.0"
+    },
+    "paths": {
+      "/api/insert": {
+        "post": {
+          "summary": "Add data to the dataset",
+          "requestBody": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "timestamp": {
+                      "type": "string",
+                      "format": "date-time"
+                    },
+                    "open": {
+                      "type": "number"
+                    },
+                    "high": {
+                      "type": "number"
+                    },
+                    "low": {
+                      "type": "number"
+                    },
+                    "close": {
+                      "type": "number"
+                    }
+                  },
+                  "required": ["timestamp", "open", "high", "low", "close"]
+                }
+              }
+            }
+          },
+          "responses": {
+            "201": {
+              "description": "Data added successfully"
+            },
+            "500": {
+              "description": "Error reading sample dataset"
+            }
+          }
+        }
+      },
+      "/api/average": {
+        "get": {
+          "summary": "Compute the moving average",
+          "parameters": [
+            {
+              "name": "window",
+              "in": "query",
+              "description": "Window parameter",
+              "schema": {
+                "type": "string"
+              }
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "OK",
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "type": "object",
+                    "properties": {
+                      "movingAverage": {
+                        "type": "number"
+                      }
+                    }
+                  }
+                }
+              }
+            },
+            "400": {
+              "description": "Invalid window parameter"
+            },
+            "500": {
+              "description": "Error reading sample dataset"
+            }
+          }
+        }
+      }
+    }
+  }
+  

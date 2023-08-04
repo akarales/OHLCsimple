@@ -1,13 +1,12 @@
-//dataRoutes.js
 const express = require('express');
 const bodyParser = require('body-parser');
 const dataController = require('./dataController');
 
-const app = express();
-app.use(bodyParser.json());
+const router = express.Router(); // Create an instance of the express router
+router.use(bodyParser.json());
 
 // POST Endpoint to Add Data
-app.post('/api/insert', (req, res) => {
+router.post('/api/insert', (req, res) => {
   const newRecord = req.body;
   // Add the new record to the dataset
   dataController.readSampleData((err, ohlcData) => {
@@ -21,7 +20,7 @@ app.post('/api/insert', (req, res) => {
 });
 
 // GET Endpoint to Compute Moving Average
-app.get('/api/average', (req, res) => {
+router.get('/api/average', (req, res) => {
     const window = req.query.window;
   
     dataController.readSampleData((err, ohlcData) => {
@@ -53,7 +52,7 @@ app.get('/api/average', (req, res) => {
   
 
 // Root URL path ("/") to handle requests
-app.get('/', (req, res) => {
+router.get('/', (req, res) => {
   const cssStyles =  `
   <style>
     body {
@@ -176,4 +175,4 @@ nodemon api_with_sample_data.js
   res.send(htmlResponse);
 });
 
-module.exports = app;
+module.exports = router;
