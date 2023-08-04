@@ -32,5 +32,5 @@ function generateData() {
 }
 
 const data = generateData();
-fs.writeFileSync('sample_data.json', JSON.stringify(data, null, 2));
-console.log('Sample data generated and saved to sample_data.json');
+fs.writeFileSync('test_data.json', JSON.stringify(data, null, 2));
+console.log('Test data generated and saved to test_data.json');
