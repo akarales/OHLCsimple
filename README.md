@@ -1,6 +1,6 @@
 # OHLCsimple
 API that computes a moving average across OHLC data
-main.js
+api_with_sample_data.js
 
 dummy set data generated from test file.
 generate_sample_data.js
