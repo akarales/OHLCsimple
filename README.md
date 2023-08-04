@@ -4,7 +4,7 @@ api_with_sample_data.js
 
 dummy set data generated from test file.
 generate_sample_data.js
-
+generate_test_data.js
 
 Setting Up the Project
 To create this project from scratch and install the required dependencies, follow these steps:
@@ -24,7 +24,7 @@ node generate_sample_data.js
 Create the api_with_sample_data.js file and use the provided code to implement the OHLC Moving Average API and generate the sample dataset.
 Testing the API using Postman:
 Start your API server by running the api_with_sample_data.js script:
-  nodemon api_with_sample_data.js
+  nodemon main.js
         
 Open Postman and create a new request collection to organize your API tests.
 Create a new request to test the POST /api/insert endpoint:
